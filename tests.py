@@ -67,7 +67,7 @@ class TournamentTests(unittest.TestCase):
         self.assertEqual(e.d["versions"],self.main["versions"])
     def test_replay(self):
         page=render(self.main,True)
-        for s in ["历史回放","已公布版本 V1","已公布版本 V2","14:00","石榴","通知队伍"]: self.assertIn(s,page)
+        for s in ["历史回放","已公布版本 V1","已公布版本 V2","14:00","石榴","需要通知的队伍名单"]: self.assertIn(s,page)
     def test_pending(self):
         e=Event("互相矛盾的要求");e.d["pending"]=["请确定可用时段"]
         with self.assertRaises(ValueError): e.candidate()

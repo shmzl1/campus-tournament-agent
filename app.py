@@ -69,7 +69,7 @@ def render(d=None,replay=False):
                 t,v=old[m]; u,w=latest["plan"][m]
                 reason=latest["change"] if m in latest["direct"] else "为满足全局约束联动调整"
                 rows+=f'<tr><td>{m}　{esc(" · ".join(matches[m]))}</td><td>{clock(t)} {esc(v)} → {clock(u)} {esc(w)}</td><td>{esc(reason)}</td></tr>'
-            parts.append(f'<section><h2>变更清单　·　{len(latest["moved"])} 场</h2><table>{rows}</table><p>通知队伍　<strong>{esc("、".join(latest["teams"]) or "无")}</strong></p><small>直接受影响　{esc("、".join(latest["direct"]) or "无")}　｜　{("已证明最少改动" if latest["solver"]=="OPTIMAL" else "找到可行方案")}</small></section>')
+            parts.append(f'<section><h2>变更清单　·　{len(latest["moved"])} 场</h2><table>{rows}</table><p>需要通知的队伍名单　<strong>{esc("、".join(latest["teams"]) or "无")}</strong></p><small>直接受影响　{esc("、".join(latest["direct"]) or "无")}　｜　{("已证明最少改动" if latest["solver"]=="OPTIMAL" else "找到可行方案")}</small></section>')
     if d.get("feedback"):
         parts.append("<section><h2>需要处理的反馈</h2>"+esc("；".join(x if isinstance(x,str) else x.get("reason","") for x in d["feedback"]))+"</section>")
     if d["status"] in ("已证明无解","超时未找到方案"):

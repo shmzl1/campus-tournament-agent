@@ -34,7 +34,7 @@ def run():
                 else: raise AssertionError("重复提交未被拦截")
         rid=parse_qs(urlsplit(url).query)["run"][0]
         data=json.loads((ROOT/"local"/(rid+".json")).read_text("utf8"))
-        assert len(data["versions"])==2 and "通知队伍" in page
+        assert len(data["versions"])==2 and "需要通知的队伍名单" in page
         data["http_checks"]=checks
         save(ROOT/"evidence"/("ui-"+rid+".json"),data)
         print(rid)
