@@ -1,14 +1,14 @@
 import json, unittest
 from copy import deepcopy
 from unittest.mock import patch
-from pathlib import Path
+from experiment_paths import RUNS
 from engine import solve,issues,diff,penalty,clash
 from workflow import Event
 from agents import validate_output
 from app import render
 from sample import MATCHES,VENUES
 def read(name):
-    return json.loads((Path(__file__).parent/"evidence"/(name+".json")).read_text("utf8"))
+    return json.loads((RUNS/(name+".json")).read_text("utf8"))
 class TournamentTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

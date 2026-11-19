@@ -1,12 +1,12 @@
 """冻结 reference.json 后运行；模型仅接收 workflow 构造的可见输入。"""
 import argparse, json
-from pathlib import Path
+from experiment_paths import RUNS
 from copy import deepcopy
 from workflow import Event, save
 from sample import CASES, CHANGES
 
 def run(name,notice,inject=False):
-    path=Path("evidence")/(name+".json")
+    path=RUNS/(name+".json")
     if path.exists(): raise FileExistsError(path)
     e=Event(notice,path)
     try:

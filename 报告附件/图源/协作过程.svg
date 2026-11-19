@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 952 628" width="952" height="628"><defs><marker id="arrow" markerUnits="userSpaceOnUse" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="9" markerHeight="9" orient="auto"><path d="M0 1 L9 5 L0 9 Z" fill="#526776"/></marker></defs><rect width="100%" height="100%" fill="#fff"/><g font-family="Microsoft YaHei, Noto Sans CJK SC, sans-serif"><text x="18" y="30" font-size="19" font-weight="700" fill="#234f5b" text-anchor="start">首次编排</text>
+<rect x="18" y="44" width="168" height="68" rx="6" fill="#f7f2e9" stroke="#c4cfd6" stroke-width="1.4"/><text x="102" y="69" font-size="18" font-weight="700" fill="#163046" text-anchor="middle">原始通知</text><text x="102" y="94" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">赛事对阵与反馈</text>
+<rect x="213" y="44" width="163" height="68" rx="6" fill="#eef1fb" stroke="#c4cfd6" stroke-width="1.4"/><text x="294.5" y="69" font-size="18" font-weight="700" fill="#163046" text-anchor="middle">赛事规则 Agent</text><text x="294.5" y="94" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">提取规则与引句</text>
+<rect x="403" y="44" width="116" height="68" rx="6" fill="#f6f8f9" stroke="#c4cfd6" stroke-width="1.4"/><text x="461" y="69" font-size="18" font-weight="700" fill="#163046" text-anchor="middle">组织者</text><text x="461" y="94" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">确认规则</text>
+<rect x="546" y="44" width="178" height="68" rx="6" fill="#eef1fb" stroke="#c4cfd6" stroke-width="1.4"/><text x="635" y="69" font-size="18" font-weight="700" fill="#163046" text-anchor="middle">赛程编排 Agent</text><text x="635" y="94" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">首版求解请求</text>
+<path d="M186 78 H211" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M376 78 H401" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="533" y="33" text-anchor="middle" font-size="15" fill="#42596a">已确认规则</text><path d="M519 78 H544" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="20" y="157" font-size="19" font-weight="700" fill="#234f5b" text-anchor="start">临时改期</text>
+<rect x="18" y="172" width="208" height="68" rx="6" fill="#f7f2e9" stroke="#c4cfd6" stroke-width="1.4"/><text x="122" y="197" font-size="18" font-weight="700" fill="#163046" text-anchor="middle">已公布赛程</text><text x="122" y="222" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">原有规则＋变更通知</text>
+<rect x="257" y="172" width="246" height="68" rx="6" fill="#eef1fb" stroke="#c4cfd6" stroke-width="1.4"/><text x="380" y="197" font-size="18" font-weight="700" fill="#163046" text-anchor="middle">临时改期 Agent</text><text x="380" y="222" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">新增限制及直接受影响场次</text>
+<rect x="535" y="172" width="189" height="68" rx="6" fill="#f7f2e9" stroke="#c4cfd6" stroke-width="1.4"/><text x="629.5" y="197" font-size="18" font-weight="700" fill="#163046" text-anchor="middle">改期求解请求</text><text x="629.5" y="222" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">携带旧版作为参照</text>
+<path d="M226 206 H255" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M503 206 H533" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="786" y="72" width="156" height="142" rx="6" fill="#eaf4f1" stroke="#c4cfd6" stroke-width="1.4"/>
+<text x="864" y="102" font-size="19" font-weight="700" fill="#163046" text-anchor="middle">控制器执行</text>
+<text x="864" y="137" font-size="18" font-weight="400" fill="#163046" text-anchor="middle">本地求解</text>
+<text x="864" y="164" font-size="17" font-weight="400" fill="#163046" text-anchor="middle">与硬约束校验</text>
+<path d="M724 78 H753 V113 H784" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M724 206 H753 V174 H784" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M864 214 V298" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="851" y="250" font-size="16" font-weight="400" fill="#42596a" text-anchor="end">候选赛程</text>
+<text x="851" y="272" font-size="16" font-weight="400" fill="#42596a" text-anchor="end">校验结果</text>
+<text x="18" y="296" font-size="19" font-weight="700" fill="#234f5b" text-anchor="start">共用复核与发布</text>
+<rect x="482" y="303" width="168" height="72" rx="6" fill="#f7f2e9" stroke="#c4cfd6" stroke-width="1.4"/><text x="566" y="328" font-size="18" font-weight="700" fill="#163046" text-anchor="middle">原始通知</text><text x="566" y="353" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">复核者独立读取</text>
+<rect x="716" y="301" width="226" height="87" rx="6" fill="#eef1fb" stroke="#c4cfd6" stroke-width="1.4"/>
+<text x="829" y="333" font-size="19" font-weight="700" fill="#163046" text-anchor="middle">独立复核 Agent</text>
+<text x="829" y="362" font-size="17" font-weight="400" fill="#42596a" text-anchor="middle">盲读清单＋候选核查</text>
+<path d="M650 339 H714" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="5 4"/>
+<path d="M829 388 V430 H583" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="704" y="418" font-size="17" font-weight="400" fill="#42596a" text-anchor="middle">附原文的复核意见</text>
+<rect x="351" y="400" width="229" height="72" rx="6" fill="#eaf4f1" stroke="#c4cfd6" stroke-width="1.4"/>
+<text x="465" y="430" font-size="19" font-weight="700" fill="#163046" text-anchor="middle">控制器汇总判定</text>
+<text x="465" y="456" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">规则、场次、退回对象</text>
+<rect x="18" y="400" width="237" height="72" rx="6" fill="#f3f7f5" stroke="#c4cfd6" stroke-width="1.4"/>
+<text x="136" y="430" font-size="19" font-weight="700" fill="#163046" text-anchor="middle">组织者确认公布</text>
+<text x="136" y="456" font-size="16" font-weight="400" fill="#42596a" text-anchor="middle">新增版本，保留原赛程</text>
+<path d="M351 436 H257" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="304" y="423" font-size="16" font-weight="700" fill="#276053" text-anchor="middle">通过</text>
+<path d="M465 472 V511" fill="none" stroke="#526776" stroke-width="1.8" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<text x="479" y="497" font-size="16" font-weight="400" fill="#42596a" text-anchor="start">有分歧：携带具体反馈及上轮候选</text>
+<rect x="18" y="514" width="924" height="99" rx="6" fill="#fbfaf6" stroke="#c6bea9" stroke-width="1.4"/>
+<text x="38" y="542" font-size="18" font-weight="700" fill="#163046" text-anchor="start">定向修订</text>
+<text x="38" y="571" font-size="16" font-weight="400" fill="#163046" text-anchor="start">原文解释有误 → 赛事规则 Agent</text>
+<text x="366" y="571" font-size="16" font-weight="400" fill="#163046" text-anchor="start">首版问题 → 赛程编排 Agent</text>
+<text x="670" y="571" font-size="16" font-weight="400" fill="#163046" text-anchor="start">变更问题 → 临时改期 Agent</text>
+<text x="38" y="598" font-size="16" font-weight="400" fill="#42596a" text-anchor="start">下一轮重新提交候选并复核；待确认、无进展或达到轮数上限时停止发布。</text></g></svg>

@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from experiment_paths import RUNS, REFERENCE, RESULTS
 from workflow import save
 from engine import solve,issues,diff,penalty
 from sample import MATCHES
@@ -9,10 +10,10 @@ def keys(items):
 def normalize(rules):
     return keys([(r["kind"],r["subjects"],r["start"],r["end"]) for r in rules])
 def measure():
-    gold=load("reference.json")
+    gold=load(REFERENCE)
     a=[]; b=[]
     for name,case in [("main","主赛事"),("supplement","补充通知"),("normal","正常对照"),("injected","人工注入")]:
-        d=load("evidence/"+name+".json")
+        d=load(RUNS/(name+".json"))
         attempts=[x for x in d["attempts"] if x["version"]==1]
         target=keys(gold["主赛事" if name=="injected" else case])
         first=normalize(attempts[0]["rules"]); final=normalize(d["versions"][0]["rules"] if d["versions"] else d["rules"])
@@ -23,7 +24,7 @@ def measure():
         baseline=events[:next(i for i,e in enumerate(events) if e["role"]=="review")]
         a.append(dict(case=case,run=d["run_id"],first_missing=len(target-first),first_extra=len(first-target),corrected=len((target-first)&final)+len((first-target)-final),introduced=len((final-target)-first)+len((target&first)-final),remaining=len(target-final),final_extra=len(final-target),baseline_valid=not issues(attempts[0]["result"]["plan"],attempts[0]["rules"]),calls=[len(baseline),len(events)],seconds=[round(sum(e["seconds"] for e in batch),2) for batch in (baseline,events)]))
     for name in ["main","team","active","tied","impossible"]:
-        d=load("evidence/"+name+".json")
+        d=load(RUNS/(name+".json"))
         attempt=d["attempts"][-1]; rules=attempt["rules"]; old=d["versions"][0]["plan"]
         for mode,ref in [("从头",None),("低扰动",old)]:
             r=solve(rules,ref,3); plan=r["plan"]
@@ -49,5 +50,6 @@ def tables(result):
     return "\n".join(lines)+"\n"
 if __name__=="__main__":
     results=measure()
-    save("evidence/results.json",results)
-    Path("experiments.md").write_text(tables(results),encoding="utf8")
+    output = RESULTS / "复算"
+    save(output / "results.json",results)
+    (output / "experiments.md").write_text(tables(results),encoding="utf8")

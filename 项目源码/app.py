@@ -9,6 +9,7 @@ from workflow import Event
 from engine import penalty
 
 ROOT=Path(__file__).resolve().parent
+REPLAY_DIR=ROOT.parent/"测试与实验"/"运行记录"
 LOCK=RLock()
 TOKEN=secrets.token_urlsafe(24)
 STYLE="""*{box-sizing:border-box}body{margin:0;background:#f4f6f2;color:#18372d;font:16px/1.55 'Microsoft YaHei',sans-serif}header{background:#123f32;color:white;padding:18px max(5%,calc((100% - 1180px)/2));font-weight:700;white-space:nowrap}main{max-width:1220px;margin:auto;padding:24px}h1{font-size:32px;margin:4px 0}h2{font-size:21px;margin:8px 0 14px}p{margin:6px 0}section,article{background:white;border:1px solid #d3ded6;border-radius:12px;padding:17px 22px;margin:14px 0}.pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}.pair article{margin:0}table{border-collapse:collapse;width:100%}td,th{text-align:left;padding:6px 10px;border-bottom:1px solid #dfe7df}th{font-size:13px;color:#527063;background:#edf3ef}.move{background:#fff0c9}small{color:#5d7469}summary{cursor:pointer}button,a.btn{background:#14624c;color:white;border:0;padding:9px 15px;font:inherit;border-radius:7px;text-decoration:none;cursor:pointer;margin:5px 6px 0 0}a{color:#14624c}textarea{width:100%;min-height:70px;padding:9px;font:inherit;border:1px solid #a7bdb0;border-radius:6px}pre{white-space:pre-wrap;overflow-wrap:anywhere}.tag{color:#805719;font-weight:bold}form{margin:10px 0}@media(max-width:780px){.pair{grid-template-columns:1fr}main{padding:12px}}"""
@@ -96,7 +97,7 @@ class Handler(BaseHTTPRequestHandler):
     def do_GET(self):
         q=parse_qs(urlsplit(self.path).query)
         path=None
-        if "replay" in q and q["replay"][0] in ("main","injected","impossible","pair_fault"): path=ROOT/"evidence"/(q["replay"][0]+".json")
+        if "replay" in q and q["replay"][0] in ("main","injected","impossible","pair_fault"): path=REPLAY_DIR/(q["replay"][0]+".json")
         if "run" in q and re.fullmatch("[a-f0-9]{32}",q["run"][0]): path=ROOT/"local"/(q["run"][0]+".json")
         if path and not path.exists(): return self.page(shell("运行不存在"),404)
         self.page(render(json.loads(path.read_text("utf8")) if path else None,"replay" in q))

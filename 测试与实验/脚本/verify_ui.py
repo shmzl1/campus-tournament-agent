@@ -4,7 +4,7 @@ from threading import Thread
 from urllib.request import urlopen
 from urllib.parse import urlencode,urlsplit,parse_qs
 from urllib.error import HTTPError
-from pathlib import Path
+from experiment_paths import RUNS
 import re, json
 from app import Handler, ROOT
 from sample import NOTICE,CHANGES,MATCHES
@@ -36,7 +36,7 @@ def run():
         data=json.loads((ROOT/"local"/(rid+".json")).read_text("utf8"))
         assert len(data["versions"])==2 and "需要通知的队伍名单" in page
         data["http_checks"]=checks
-        save(ROOT/"evidence"/("ui-"+rid+".json"),data)
+        save(RUNS/("ui-"+rid+".json"),data)
         print(rid)
     finally: server.shutdown();server.server_close()
 if __name__=="__main__": run()
