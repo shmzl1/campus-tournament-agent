@@ -1,29 +1,31 @@
-# 校园赛事赛程编排与临时改期助手
+# 多 Agent 数据结论审查与复现系统
 
-组织者在浏览器输入对阵和自然语言通知，确认规则后公布赛程。公布后，系统识别受临时变更影响的比赛，比较新旧版本并生成需要通知的队伍名单。榆园杯、参赛队和通知均为虚构样例。
+给一份 CSV 和几句结论，系统逐句回答“数据支持”“与数据矛盾”或“证据不足”，列出实际使用的字段、筛选、分子和分母。可以在浏览器下载 Markdown 报告与 JSON 复算记录。
 
-![二号场停用后的比赛差异](报告附件/图片/改期对照.png)
+![同一原句经过总体计算、分组复核与补算](figures/dispute.png)
 
-## 启动与测试
+## Windows 启动
 
-从仓库根目录或完整解压目录执行。Python 3.13 已验证，无第三方运行依赖。
-
-```powershell
-python ".\项目源码\app.py"
-```
-
-打开 http://127.0.0.1:8765/ 或直接进入 http://127.0.0.1:8765/?replay=main 。在另一窗口运行 26 项离线测试：
+在本目录的 PowerShell 中运行，实测 Python 3.13，运行时仅用标准库。
 
 ```powershell
-python -m unittest discover -s ".\测试与实验\脚本" -p "tests.py" -v
+python app.py
 ```
 
-## 项目内容
+打开 http://127.0.0.1:8766/ 。上传 UTF-8 CSV 或使用内置样例，每行输入一条原句。真实审查从进程环境读取 `DEEPSEEK_API_KEY`，模型通过 `DEEPSEEK_MODEL` 配置，默认 deepseek-flash。字段名、类别值示例、原句和汇总证据会发给官方服务。应用只监听本机。已有实验回放可以离线打开，包括 [分组争议](http://127.0.0.1:8766/view?case=injected)。
 
-- [公开结课报告](report.md)与[Windows 启动说明](项目源码/Windows启动说明.md)
-- [实验对照表](测试与实验/实验结果/experiments.md)、[正式运行记录](测试与实验/运行记录)、[开发期记录](测试与实验/开发记录)
-- [演示脚本](报告附件/演示脚本.md)、[课件要求对照](报告附件/课件要求对照.md)、[可编辑 SVG 图源](报告附件/图源)
+## 离线验收
 
-离线复算用 `python ".\测试与实验\脚本\experiments.py"`，结果写入“测试与实验/实验结果/复算”，耗时随机器变化。真实模型验证脚本 verify_ui.py、formal.py、branches.py 和 fault_pair.py 位于同一脚本目录，调用会产生 API 费用。formal.py 与 branches.py 拒绝覆盖同名运行。可在单独副本内备份运行记录目录，然后重跑 main、supplement、normal、injected 首版，接着运行 fault_pair.py 和 branches.py 的各变更案例。模型重复采样可能返回不同意见。
+```powershell
+python -m unittest discover -s tests -v
+python audit.py examples/conversion.csv evidence/multi.json
+python experiments/score.py
+```
 
-本项目使用 Codex 辅助开发。接口与运行依赖参考 [DeepSeek 官方文档](https://api-docs.deepseek.com/) 与 [Python 标准库](https://docs.python.org/3/library/)。
+复算程序逐轮重做统计、核对 CSV 指纹和锁定判定。修改原数据或已记录的分母会触发校验错误。它不认证报告作者或签名。真实重跑使用 `python experiments/run.py multi local/repeat.json`（输出路径须未被占用），Web 上传验收使用 `python experiments/web_smoke.py`。两种重跑均调用模型。回放只读 evidence；浏览器发起的新运行保存在 local，下载后自行保留原 CSV。
+
+目前支持至多 1 MB、10000 行、40 列的 UTF-8 CSV，等值筛选后的计数、合计、算术均值及部分占总体的百分比。跨期和跨组通过多条明确的筛选请求比较。未支持的统计推断、缺失字段及缺乏识别依据的因果主张应保留“证据不足”。
+
+[课程报告](report.md) · [四行样例 CSV](examples/conversion.csv) · [实验方案](experiments/protocol.md) · [冻结评分](evidence/summary.json)
+
+本仓库从“校园赛事赛程编排与临时改期助手”换题而来，沿用同一 Git 历史。原项目最后一个完整已提交版本见 [campus-tournament-final](https://github.com/shmzl1/data-claim-auditor/tree/campus-tournament-final)。模型调用基于 [DeepSeek 官方 API](https://api-docs.deepseek.com/)。
