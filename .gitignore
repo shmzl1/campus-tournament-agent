@@ -3,6 +3,4 @@ __pycache__/
 .env
 .venv/
 local/
-*.zip
 *_系统设计.md
-测试与实验/实验结果/复算/

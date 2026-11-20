@@ -1,0 +1,89 @@
+{
+  "rows": [
+    {
+      "text": "总体转化率从4月到5月上升。",
+      "reference": "数据支持",
+      "single": "数据支持",
+      "multi": "数据支持"
+    },
+    {
+      "text": "新用户和老用户的转化率从4月到5月均有提升。",
+      "reference": "与数据矛盾",
+      "single": "与数据矛盾",
+      "multi": "与数据矛盾"
+    },
+    {
+      "text": "5月新用户的转化率为1%。",
+      "reference": "与数据矛盾",
+      "single": "与数据矛盾",
+      "multi": "与数据矛盾"
+    },
+    {
+      "text": "5月女性用户的转化率高于男性用户。",
+      "reference": "证据不足",
+      "single": "证据不足",
+      "multi": "证据不足"
+    },
+    {
+      "text": "5月的页面改版导致总体转化率上升。",
+      "reference": "证据不足",
+      "single": "证据不足",
+      "multi": "证据不足"
+    },
+    {
+      "text": "5月老用户的转化率为70%。",
+      "reference": "数据支持",
+      "single": "数据支持",
+      "multi": "数据支持"
+    }
+  ],
+  "modes": {
+    "single": {
+      "status": "已完成",
+      "run_id": "54d69fb4c3af4e44a6fc9003ff28c929",
+      "calls": 2,
+      "seconds": 4.809,
+      "tokens": 3426,
+      "replayed": 7
+    },
+    "multi": {
+      "status": "已完成",
+      "run_id": "ac1718ba58384eef93d5fe817d56b378",
+      "calls": 4,
+      "seconds": 6.497,
+      "tokens": 5758,
+      "replayed": 7
+    },
+    "injected": {
+      "status": "已完成",
+      "run_id": "5db8cf4d239743569f20fdc150fc5195",
+      "calls": 6,
+      "seconds": 7.547,
+      "tokens": 4976,
+      "replayed": 4
+    },
+    "single-pilot": {
+      "status": "运行失败",
+      "run_id": "0934eb79c5d24ea3be3bb1d6c4d9892f",
+      "calls": 3,
+      "seconds": 6.642,
+      "tokens": 6382,
+      "replayed": 7
+    }
+  },
+  "corrected": 0,
+  "regressed": 0,
+  "extra_calls": 2,
+  "tamper": [
+    {
+      "test": "更改一个 CSV 人数",
+      "detected": true,
+      "message": "CSV 的 SHA-256 与报告不符"
+    },
+    {
+      "test": "更改报告分母",
+      "detected": true,
+      "message": "重算证据与报告不一致"
+    }
+  ]
+}
