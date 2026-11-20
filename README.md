@@ -28,4 +28,4 @@ python experiments/score.py
 
 [课程报告](report.md) · [四行样例 CSV](examples/conversion.csv) · [实验方案](experiments/protocol.md) · [冻结评分](evidence/summary.json)
 
-本仓库从“校园赛事赛程编排与临时改期助手”换题而来，沿用同一 Git 历史。原项目最后一个完整已提交版本见 [campus-tournament-final](https://github.com/shmzl1/data-claim-auditor/tree/campus-tournament-final)。模型调用基于 [DeepSeek 官方 API](https://api-docs.deepseek.com/)。
+模型调用基于 [DeepSeek 官方 API](https://api-docs.deepseek.com/)。
